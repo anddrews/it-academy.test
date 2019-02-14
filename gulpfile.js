@@ -17,7 +17,7 @@ var path = {
     fonts: 'distr/fonts/'
   },
   src: {
-    html: 'src/**/*.html',
+    html: 'src/**/[^_]*.html',
     style: 'src/style/common-style.less',
     img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
