@@ -25,6 +25,7 @@ var path = {
   watch: {
     html: 'src/**/*.html',
     style: 'src/style/**/*.less',
+    partials: 'src/partials/**/*.less',
     img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
   },
@@ -83,6 +84,9 @@ gulp.task('watch', function(){
   });
   watch([path.watch.fonts], function() {
     gulp.start('fonts:build');
+  });
+  watch([path.watch.partials], function() {
+    gulp.start('style:build');
   });
 });
 
