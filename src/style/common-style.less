@@ -1,16 +1,39 @@
-@import "../partials/diamond-item/_dimond-element.less";
+// @import "../partials/diamond-item/_dimond-element.less";
+@import "../partials/dimond-item/_dimond-element.less";
 
-* {
-	outline: 1px solid red;
+.dimonds-menu {
+	background: url('../img/background-diamond.jpg') no-repeat 50% 50%;
 }
 
 .dimonds {
-	width: 1000px;
+	max-width: 1000px;
+	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	padding: 40px 0;
+	background-size: cover;
 }
 
 .dimonds__item {
 	width: 25%;
+	min-width: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.stub {
+	display: none;
+	width: 16.5%;
+}
+
+@media screen and (max-width: 1014px) {
+	.dimonds__item {
+		width: 33%;
+	}
+
+	.stub {
+		display: block;
+	}
 }

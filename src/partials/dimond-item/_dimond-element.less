@@ -1,3 +1,39 @@
 .dimond-element {
-	height: 100px;
+	position: relative;
+	height: 160px;
+	width: 160px;
+	transform: rotate(45deg);
+	opacity: .7;
+	overflow: hidden;
+}
+
+
+.dimond-element__layer {
+	position: absolute;
+	height: 100%;
+	background-color: green;
+	width: 143%;
+	height: 143%;
+	top: -35px;
+	left: -35px;
+	transform: rotate(-45deg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.dimond-element__layer.hover {
+	background-color: red;
+	height: 0;
+	width: 0;
+	visibility: hidden;
+	transition: .2s linear;
+}
+
+.dimond-element:hover .dimond-element__layer.hover {
+	width: 143%;
+	height: 143%;
+	transition: .2s linear;
+	visibility: visible;
 }
