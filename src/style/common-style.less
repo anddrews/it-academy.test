@@ -27,7 +27,7 @@
 
 .position-absolute {
   position: absolute;
-  bottom: 0;
+  bottom: 50%;
   right: 0;
   height: 100px;
   width: 100px;
@@ -55,4 +55,42 @@
   height: 50px;
   outline: 3px solid blue;
   overflow: hidden;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.float-example {
+  outline: 1px solid red;
+}
+
+.float-img {
+  width: 200px; 
+  height: 200px;
+  float: left;
+}
+
+.float-example-many {
+  outline: 1px solid red;
+}
+
+.float-item {
+  width: 400px;
+  height: 200px;
+  float: left;
+}
+
+.float-item.red {
+  background-color: red;
+}
+
+.float-item.green {
+  background-color: green;
+}
+
+.float-item.blue {
+  background-color: blue;
 }
