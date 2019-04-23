@@ -1,3 +1,47 @@
-html * {
-  outline: 1px solid red;
+.main-wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.three-column {
+  outline: 1px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__item {
+    outline: 1px solid red;
+    width: 33.3%;
+    
+    @media (max-width: 760px){
+        width: 50%;
+    }
+
+    @media (max-width: 560px){
+        width: 100%;
+    }
+  }
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__header {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 20px;
+  }
+
+  &__content {
+    padding: 15px 5px;
+    flex: 1 1 100%;
+  }
 }
