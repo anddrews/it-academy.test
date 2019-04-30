@@ -1,13 +1,15 @@
 .burger-nav {
-    display: block;
+    display: flex;
     width: 250px;
     outline: 1px solid red;
     position: relative;
+    justify-content: flex-end;
 
     &__opener {
         width: 50px;
         height: 50px;
         background-color: green;
+        align-self: flex-end;
         cursor: pointer;
 
         &.open {
@@ -22,6 +24,8 @@
         position: absolute;
         background-color: #fff;
         width: 100%;
+        top: 50px;
+
 
         &.open {
             max-height: 500px;
