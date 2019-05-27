@@ -1,12 +1,17 @@
-var gulp = require('gulp'),
-  watch = require('gulp-watch'),
-  less = require('gulp-less'),
-  sourcemaps = require('gulp-sourcemaps'),
-  cssmin = require('gulp-clean-css'),
-  browserSync = require("browser-sync"),
-  reload = browserSync.reload,
-  include = require('gulp-file-include');
-
+const {
+  series,
+  parallel,
+  src,
+  dest,
+  watch
+} = require('gulp');
+const clean = require('gulp-clean');
+const include = require('gulp-file-include');
+const plumber = require('gulp-plumber');
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const browsersync = require('browser-sync');
+const fs = require("fs");
 
 var path = {
   distr: {
@@ -18,87 +23,70 @@ var path = {
   },
   src: {
     html: 'src/**/[^_]*.html',
-    style: 'src/style/common-style.less',
+    style: 'src/common-style.scss',
     img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
   },
   watch: {
     html: 'src/**/*.html',
-    style: 'src/style/**/*.less',
-    partials: 'src/partials/**/*.less',
+    style: 'src/**/*.scss',
     img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
   },
   clean: './distr'
 };
 
-var config = {
+var serverConfig = {
   server: {
     baseDir: "./distr"
   },
-  tunnel: true,
+  tunnel: false,
   host: 'localhost',
   port: 9000,
-  logPrefix: "Frontend_Devil"
+  logPrefix: "IT-academy",
+  notify: false
 };
 
-gulp.task('html:build', function () {
-  gulp.src(path.src.html)
-    .pipe(include({
-      prefix: '@@',
-      basepath: '@file'
-    }))
-    .pipe(gulp.dest(path.distr.html))
-    .pipe(reload({stream: true}));
-});
 
-gulp.task('style:build', function () {
-  gulp.src(path.src.style)
-    .pipe(less())
-    .pipe(cssmin())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(path.distr.css))
-    .pipe(reload({stream: true}));
-});
+const cleanDist = (cb) => {
+  if(fs.existsSync('./distr')) {
+    return src(path.clean)
+      .pipe(clean());
+  }
+  cb();
+};
 
-gulp.task('fonts:build', function() {
-  gulp.src(path.src.fonts)
-    .pipe(gulp.dest(path.distr.fonts))
-});
+const httpBuild = () => src(path.src.html)
+  .pipe(include({
+    prefix: '@@',
+    basepath: '@file'
+  }))
+  .pipe(dest(path.distr.html))
+  .pipe(browsersync.stream());
 
-gulp.task('image:build', function () {
-  gulp.src(path.src.img)
-    .pipe(gulp.dest(path.distr.img))
-    .pipe(reload({stream: true}));
-});
+const stylesBuild = () => src(path.src.style)
+  .pipe(sourcemaps.init())
+  .pipe(plumber())
+  .pipe(sass())
+  .pipe(plumber.stop())
+  .pipe(sourcemaps.write('./maps/'))
+  .pipe(dest(path.distr.css))
+  .pipe(browsersync.stream());
 
-gulp.task('watch', function(){
-  watch([path.watch.html], function() {
-    gulp.start('html:build');
-  });
-  watch([path.watch.style], function() {
-    gulp.start('style:build');
-  });
-  watch([path.watch.img], function() {
-    gulp.start('image:build');
-  });
-  watch([path.watch.fonts], function() {
-    gulp.start('fonts:build');
-  });
-  watch([path.watch.partials], function() {
-    gulp.start('style:build');
-  });
-});
+const fontsBuild = () => src(path.src.fonts).pipe(dest(path.distr.fonts));
 
-gulp.task('webserver', function () {
-  browserSync(config);
-});
+const imgsBuild = () => src(path.src.img).pipe(dest(path.distr.img));
 
-gulp.task('build', [
-  'html:build',
-  'style:build',
-  'fonts:build',
-  'image:build'
-]);
+const server = () => {
+  browsersync.init(serverConfig);
+  
+  watch(path.watch.html, httpBuild);
+  watch(path.watch.style, stylesBuild);
+  watch(path.src.img, imgsBuild);
+  watch(path.src.fonts, fontsBuild);
+  
+};
 
-gulp.task('default', ['build','webserver', 'watch']);
+const build = series(cleanDist, parallel(httpBuild, stylesBuild, fontsBuild, imgsBuild));
+exports.start = series(build, server);
+exports.clean = series(cleanDist);

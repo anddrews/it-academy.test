@@ -5,18 +5,17 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp start"
   },
   "devDependencies": {
-    "browser-sync": "^2.2.3",
-    "gulp": "^3.9.0",
-    "gulp-clean-css": "^1.0.0",
-    "gulp-less": "^3.1.0",
-    "gulp-load-plugins": "^1.0.0-rc.1",
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.2.0",
     "gulp-file-include": "^2.0.1",
-    "gulp-sourcemaps": "^1.5.0",
-    "gulp-watch": "^4.1.1",
-    "gulp-webserver": "^0.9.1",
-    "rimraf": "^2.3.1"
+    "gulp-if": "^2.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
   }
 }
