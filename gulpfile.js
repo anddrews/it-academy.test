@@ -90,3 +90,4 @@ const server = () => {
 const build = series(cleanDist, parallel(httpBuild, stylesBuild, fontsBuild, imgsBuild));
 exports.start = series(build, server);
 exports.clean = series(cleanDist);
+exports.build = series(build);
