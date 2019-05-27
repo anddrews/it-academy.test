@@ -13,7 +13,7 @@ const sass = require('gulp-sass');
 const browsersync = require('browser-sync');
 const fs = require("fs");
 
-var path = {
+const path = {
   distr: {
     html: 'distr/',
     js: 'distr/js/',
@@ -36,7 +36,7 @@ var path = {
   clean: './distr'
 };
 
-var serverConfig = {
+const serverConfig = {
   server: {
     baseDir: "./distr"
   },
