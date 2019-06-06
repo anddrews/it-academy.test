@@ -23,7 +23,7 @@ const path = {
   },
   src: {
     html: 'src/**/[^_]*.html',
-    style: 'src/common-style.scss',
+    style: 'src/main.scss',
     img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
   },
@@ -73,9 +73,9 @@ const stylesBuild = () => src(path.src.style)
   .pipe(dest(path.distr.css))
   .pipe(browsersync.stream());
 
-const fontsBuild = () => src(path.src.fonts).pipe(dest(path.distr.fonts));
+const fontsBuild = () => src(path.src.fonts).pipe(dest(path.distr.fonts)).pipe(browsersync.stream());
 
-const imgsBuild = () => src(path.src.img).pipe(dest(path.distr.img));
+const imgsBuild = () => src(path.src.img).pipe(dest(path.distr.img)).pipe(browsersync.stream());
 
 const server = () => {
   browsersync.init(serverConfig);
