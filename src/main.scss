@@ -1,49 +1,74 @@
+@import "./sprites.scss";
+@import "./partials/card/card.scss";
+
+@font-face {
+  src: url("/font/SouthernAire_Personal_Use_Only.ttf");
+  font-family: "beauty font";
+}
+
 body * {
   outline: 1px solid red;
 }
 
-.block {
-  height: 100px;
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-.big-block {
-  height: 200vh;
+.container {
+  height: calc(100% - 160px);
+}
+.block-1, .block-2 {
+  width: 200px;
+  height: 100%;
+
 }
 
-.pos-fixed {
-  height: 50px;
-  background-color: red;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
+.block-1 {
+  background-color: green;
+  float: left;
+  font-family: 'beauty font';
 }
 
-.hidden-block {
-  height: 100px;
-  width: 100px;
+.block-2 {
   background-color: blue;
-  display: none;
-  z-index: 2;
-  position: absolute;
-  top: 20px;
+  float: right;
 }
 
-.pos-fixed:hover .hidden-block {
+.header:before {
+  content: "before";
+  height: 30px;
+  display: block;
+  outline: 1px solid green;
+  background-color: blue;
+}
+
+.header:after {
+  content: "after";
+  height: 30px;
+  display: block;
+  outline: 1px solid green;
+  background-color: red;
+}
+
+.main {
+  background-color:orange;
+  font-family: "beauty font";
+  font-size: 50px;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
   display: block;
 }
 
-.pos-relative {
-  margin-top: 50px;
-  position: relative;
-  right: 20px;
-  top: 20px; 
+.header, .footer {
+  height: 80px;
+}
+.cards {
+  display: flex;
+
 }
 
-.pos-absolute {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: green;
-}

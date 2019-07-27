@@ -8,17 +8,16 @@
     <title>it academy</title>
   </head>
   <body>  
-    <div class="pos-fixed">
-      Fixed
-      <div class="hidden-block">
-        hidden block
-      </div>
+    <div class="header">Header</div>
+    <div class="container clearfix">
+      <div class="block-1"></div>
+      <div class="block-2"></div>
+      <div class="main">main</div>
     </div>
-    <div class="pos-relative">
-      <div class="some-block block">Some block</div>
-      <div class="pos-absolute block">Pos absolute</div>
-      <div class="another-block block">anoter block</div>
+    <div class="cards">
+      @@include('./partials/card/_card.html', {"userName": "first", "userPosition": "CEO", "userImage": "./img/rose-3142529__340.jpg", "userDescription": "Kjhkjhkjh"})
     </div>
-    <div class="big-block"></div>
+    
+    <div class="footer">Footer</div>
   </body>
 </html>
