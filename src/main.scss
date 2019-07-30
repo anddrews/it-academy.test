@@ -1,9 +1,9 @@
-@font-face {
-  src: url("./fonts/16758.otf");
-  font-family: New_font;
-}
+@import "./partials/user-card/user-card";
 
-html * {
-  outline: 1px solid red;
-  font-family: New_font;
+.three-column {
+  display: flex;
+
+  &__item {
+    width: 33%;
+  }
 }

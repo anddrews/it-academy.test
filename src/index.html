@@ -6,7 +6,31 @@
     <title>Hello world</title>
   </head>
   <body>
-    <h1>Hello world</h1>
-    <img src="./img/car.png" alt="car">
+    <div class="three-column">
+      <div class="three-column__item">
+        @@include('./partials/user-card/_user-card.html', {
+          "userName": "David",
+          "userPosition": "CEO",
+          "pathUserImg": "./img/rabbit.jpg",
+          "userDescription": "Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed lectus. Phasellus dolor.        Duis vel nibh at velit scelerisque suscipit. Sed lectus. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci."
+        })
+      </div>
+      <div class="three-column__item">
+        @@include('./partials/user-card/_user-card.html', {
+          "userName": "David",
+          "userPosition": "CEO",
+          "pathUserImg": "./img/rabbit.jpg",
+          "userDescription": "Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed lectus. Phasellus dolor.        Duis vel nibh at velit scelerisque suscipit. Sed lectus. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci."
+        })
+      </div>
+      <div class="three-column__item">
+        @@include('./partials/user-card/_user-card.html', {
+          "userName": "David",
+          "userPosition": "CEO",
+          "pathUserImg": "./img/rabbit.jpg",
+          "userDescription": "Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed lectus. Phasellus dolor.        Duis vel nibh at velit scelerisque suscipit. Sed lectus. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci."
+        })
+      </div>
+    </div>
   </body>
 </html>
