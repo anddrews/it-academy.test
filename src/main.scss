@@ -1,3 +1,16 @@
-* {
-  outline: 1px solid red;
+@import "./normalize.scss";
+@import "./assets/colors.scss";
+@import "./partials/main-menu/main-menu.scss";
+
+.header {
+    height: 100vh;
+    background-color: $header-background;
+    background-image: url(/img/header-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1260px;
+    margin: 0 auto;
 }
