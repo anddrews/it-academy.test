@@ -1,74 +1,16 @@
 @import "./sprites.scss";
 @import "./partials/card/card.scss";
 
-@font-face {
-  src: url("/font/SouthernAire_Personal_Use_Only.ttf");
-  font-family: "beauty font";
-}
-
-body * {
-  outline: 1px solid red;
-}
-
-html, body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-
 .container {
-  height: calc(100% - 160px);
-}
-.block-1, .block-2 {
-  width: 200px;
-  height: 100%;
-
+  &__item {
+    float: left;
+    width: 50%;
+  }
 }
 
-.block-1 {
-  background-color: green;
-  float: left;
-  font-family: 'beauty font';
-}
-
-.block-2 {
-  background-color: blue;
-  float: right;
-}
-
-.header:before {
-  content: "before";
-  height: 30px;
-  display: block;
-  outline: 1px solid green;
-  background-color: blue;
-}
-
-.header:after {
-  content: "after";
-  height: 30px;
-  display: block;
-  outline: 1px solid green;
-  background-color: red;
-}
-
-.main {
-  background-color:orange;
-  font-family: "beauty font";
-  font-size: 50px;
-}
-
-.clearfix:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-.header, .footer {
-  height: 80px;
-}
-.cards {
-  display: flex;
-
+@media all and (min-width: 600px) {
+  .container__item {
+    width: 25%;
+  }
 }
 
