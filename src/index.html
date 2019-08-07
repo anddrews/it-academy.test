@@ -12,8 +12,19 @@
     @@include('./partials/main-menu/_main-menu.html')
     <div class="header">
       <div class="container">
-        <div class="header__content"></div>
-      </div>
+        <div class="header__content">
+          @@include('./partials/custom-radio/_custom-radio.html', {
+            "inputId": "3",
+            "label": "Test label",
+            "name": "test"
+          })
+          @@include('./partials/custom-radio/_custom-radio.html', {
+            "inputId": "4",
+            "label": "Test label",
+            "name": "test"
+          })
+        </div>
+      </div>   
     </div>
   </body>
 </html>
