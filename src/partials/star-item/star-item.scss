@@ -5,7 +5,23 @@
 .star__label {
     width: 14px;
     height: 14px;
+    margin: 0 3px;
     background-image: url("/img/star-empty.png");
     display: block;
     cursor: pointer;
+
+    &:last-of-type {
+        margin-left: 0;
+    }
+
+    &:first-of-type {
+        margin-right: 0;
+    }
+}
+
+[id^="star"]:checked ~ .star__label,
+[id^="star"]:hover ~ .star__label,
+[id^="star"]:checked + .star__label,
+[id^="star"]:hover + .star__label  {
+    background-image: url("/img/star-gold.png");
 }
