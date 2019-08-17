@@ -1,0 +1,11 @@
+.star__input {
+    display: none;
+}
+
+.star__label {
+    width: 14px;
+    height: 14px;
+    background-image: url("/img/star-empty.png");
+    display: block;
+    cursor: pointer;
+}
