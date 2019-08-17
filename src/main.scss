@@ -6,25 +6,9 @@
     justify-content: flex-end;
 }
 
-#star-1:checked ~ .star__label,
-#star-1:hover ~ .star__label,
-#star-1:checked + .star__label,
-#star-1:hover + .star__label,
-#star-2:checked ~ .star__label,
-#star-2:hover ~ .star__label,
-#star-2:checked + .star__label,
-#star-2:hover + .star__label,
-#star-3:checked ~ .star__label,
-#star-3:hover ~ .star__label,
-#star-3:checked + .star__label,
-#star-3:hover + .star__label,
-#star-4:checked ~ .star__label,
-#star-4:hover ~ .star__label,
-#star-4:checked + .star__label
-#star-4:hover + .star__label,
-#star-5:checked ~ .star__label
-#star-5:hover ~ .star__label,
-#star-5:checked + .star__label
-#star-5:hover + .star__label  {
+[id*="star"]:checked ~ .star__label,
+[id*="star"]:hover ~ .star__label,
+[id*="star"]:checked + .star__label,
+[id*="star"]:hover + .star__label  {
     background-image: url("/img/star-gold.png");
 }
