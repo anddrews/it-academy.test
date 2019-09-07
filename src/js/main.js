@@ -1,45 +1,30 @@
-function createHuman() {
-    var human = {};
-    var teenager = '';
-    var humans = [];
+var arr = [];
 
-    for (var i = 0; i < 2; i++) {
-
-    var firstName = prompt('Type first name');
-    var lastName = prompt('Type last name');
-    var age = +prompt('Type age');
-    var sex = prompt('Type sex');
-    
-
-    humans[i].firstName = firstName;
-    humans[i].lastName = lastName;
-    humans[i].age = age;
-    humans[i].sex = sex;
-    
-}
-
-
-
-    if(age >=13 && age <= 19) {
-        teenager = 'He is teenager';
-    } else {
-        teenager = "He isn't teenager";
+function sort(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j ++) {
+            if (arr[i] > arr[j]) {
+                var tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
     }
 
-    console.log(humans);
-
-    for(var i = 0; i < 2; i++) {
-        alert('Имя: ' +
-            humans[i].firstName +
-            '\nФамилия: ' +
-            humans[i].lastName +
-            '\nПол: ' +
-            humans[i].sex +
-            '\nВозраст: ' +
-            humans[i].age +
-            '\n' + teenager
-            );
-    }
+    return arr;
 }
 
-createHuman();
+function main() {
+    do {
+        var value = prompt('Input number');
+        if(value) {
+            arr.push(value);
+        }
+    } while (value);
+
+    alert(sort(arr));  
+    alert('min ' + arr[0])
+    alert('max ' + arr[arr.length - 1])
+};
+
+document.querySelector('.button-map').addEventListener('click', main)

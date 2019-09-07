@@ -1,6 +1,28 @@
-@import "./slick/slick.scss";
-@import "./slick/slick-theme.scss";
 
 * {
   outline: 1px solid red;
+}
+.preview {
+    .img__wrapper {
+        display: none;
+    }
+    &.active {
+        .img__wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba( 0, 0, 0, .5);
+            transition: .5s ease;
+            
+            .img__preview {
+                transform: scale(2, 2);
+            }
+        }
+    }
+
 }
