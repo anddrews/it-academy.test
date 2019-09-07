@@ -27,4 +27,13 @@ function main() {
     alert('max ' + arr[arr.length - 1])
 };
 
-document.querySelector('.button-map').addEventListener('click', main)
+document.querySelector('.button-map').addEventListener('click', main);
+
+var wrap = document.querySelector('.preview');
+var prev = document.querySelector('.img__preview--small');
+
+prev.addEventListener('click', () => wrap.classList.toggle('active'));
+
+var prev = document.querySelector('.img__preview');
+
+prev.addEventListener('click', () => wrap.classList.toggle('active'));
