@@ -1,28 +1,20 @@
+@import "./partial/number.scss";
 
-* {
-  outline: 1px solid red;
+.numbers {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
-.preview {
-    .img__wrapper {
-        display: none;
-    }
-    &.active {
-        .img__wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba( 0, 0, 0, .5);
-            transition: .5s ease;
-            
-            .img__preview {
-                transform: scale(2, 2);
-            }
-        }
-    }
 
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 80px;
+    border: 1px solid #383838;
+    font-size: 26px;
+    font-weight: bold;
 }
