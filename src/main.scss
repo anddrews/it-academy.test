@@ -1,20 +1,22 @@
-@import "./partial/number.scss";
-
-.numbers {
-    width: 300px;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
+.spacer {
+    height: 600px;
 }
 
-.result {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 80px;
-    border: 1px solid #383838;
-    font-size: 26px;
-    font-weight: bold;
+.top-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#first-block {
+    background-color: grey;
+    height: 100px;
+    text-align: right;
+}
+
+#second-block {
+    background-color: grey;
+    height: 100px;
+    text-align: right;
 }

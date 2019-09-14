@@ -1,14 +1,11 @@
-var wrapp = document.querySelector('.numbers');
-var res = document.querySelector('.result');
+var body = document.querySelector('body');
 
-wrapp.addEventListener('click', function (e) {
-    var id = e.target.id
+body.addEventListener('click', function(e) {
+    var hash = e.target.hash;
     
-    if(parseInt(id)) {
-        res.innerText = res.innerText ? res.innerText + id : id;
-    }
-
-    if (id === 'call') {
-        res.innerText = ''
+    if(hash) {
+        e.preventDefault();
+        var element = document.querySelector(hash);
+        element.scrollIntoView({behavior: 'smooth'});
     }
 })
