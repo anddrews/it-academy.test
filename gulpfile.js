@@ -14,12 +14,12 @@ const browsersync = require('browser-sync');
 const fs = require("fs");
 
 const path = {
-  distr: {
-    html: 'distr/',
-    js: 'distr/js/',
-    css: 'distr/css/',
-    img: 'distr/img/',
-    fonts: 'distr/fonts/'
+  dist: {
+    html: 'dist/',
+    js: 'dist/js/',
+    css: 'dist/css/',
+    img: 'dist/img/',
+    fonts: 'dist/fonts/'
   },
   src: {
     html: 'src/**/[^_]*.html',
@@ -35,12 +35,12 @@ const path = {
     fonts: 'src/fonts/**/*.*',
     js: 'src/js/**/*.js'
   },
-  clean: './distr'
+  clean: './dist'
 };
 
 const serverConfig = {
   server: {
-    baseDir: "./distr"
+    baseDir: "./dist"
   },
   tunnel: false,
   host: 'localhost',
@@ -51,7 +51,7 @@ const serverConfig = {
 
 
 const cleanDist = (cb) => {
-  if(fs.existsSync('./distr')) {
+  if(fs.existsSync('./dist')) {
     return src(path.clean)
       .pipe(clean());
   }
@@ -63,7 +63,7 @@ const httpBuild = () => src(path.src.html)
     prefix: '@@',
     basepath: '@file'
   }))
-  .pipe(dest(path.distr.html))
+  .pipe(dest(path.dist.html))
   .pipe(browsersync.stream());
 
 const stylesBuild = () => src(path.src.style)
@@ -72,13 +72,13 @@ const stylesBuild = () => src(path.src.style)
   .pipe(sass())
   .pipe(plumber.stop())
   .pipe(sourcemaps.write('./maps/'))
-  .pipe(dest(path.distr.css))
+  .pipe(dest(path.dist.css))
   .pipe(browsersync.stream());
 
-const fontsBuild = () => src(path.src.fonts).pipe(dest(path.distr.fonts)).pipe(browsersync.stream());
+const fontsBuild = () => src(path.src.fonts).pipe(dest(path.dist.fonts)).pipe(browsersync.stream());
 
-const imgsBuild = () => src(path.src.img).pipe(dest(path.distr.img)).pipe(browsersync.stream());
-const jsBuild = () => src(path.src.js).pipe(dest(path.distr.js)).pipe(browsersync.stream());
+const imgsBuild = () => src(path.src.img).pipe(dest(path.dist.img)).pipe(browsersync.stream());
+const jsBuild = () => src(path.src.js).pipe(dest(path.dist.js)).pipe(browsersync.stream());
 
 const server = () => {
   browsersync.init(serverConfig);
@@ -87,7 +87,7 @@ const server = () => {
   watch(path.watch.style, stylesBuild);
   watch(path.src.img, imgsBuild);
   watch(path.src.fonts, fontsBuild);
-  watch(path.src.js, fontsBuild);
+  watch(path.src.js, jsBuild);
   
 };
 
