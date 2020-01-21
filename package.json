@@ -5,7 +5,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "gulp start"
+    "start": "gulp start",
+    "build": "gulp build"
   },
   "devDependencies": {
     "browser-sync": "^2.26.5",
